@@ -1,5 +1,7 @@
 import React from 'react'
 import Buttons from './Buttons.jsx'
+import Theme from './Theme.jsx'
+import Profile from './Profile.jsx'
 
 function Navbar() {
   return (
@@ -25,8 +27,7 @@ function Navbar() {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li><a href='/'><Buttons componentName='Home'/></a></li>
-        <li><a href='/about'><Buttons componentName='About' /></a></li>
-        <li><a href='/contact'><Buttons componentName='Contact'/></a></li>
+        <li><a href='/profile'><Buttons componentName='Profile'/></a></li>
       </ul>
     </div>
   </div>
@@ -34,6 +35,7 @@ function Navbar() {
     <a className="btn btn-ghost text-xl">NextFm</a>
   </div>
   <div className="navbar-end">
+  <Theme/>
     <button className="btn btn-ghost btn-circle">
       <svg
         xmlns="http://www.w3.org/2000/svg"

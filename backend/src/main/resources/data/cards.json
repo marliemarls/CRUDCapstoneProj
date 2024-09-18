@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Card Title 1",
+    "artistName": "Artist Name",
+    "genre": "genre",
+    "image_url": "",
+    "creator": {
+      "id": 1,
+      "username": "user1",
+      "password": "password1",
+      "email": "user1@email.com",
+      "enabled": true,
+      "roles": [
+        {
+          "id": 2,
+          "role": "ROLE_USER"
+        }
+      ],
+      "musicCards": []
+    }
+  }
+]
