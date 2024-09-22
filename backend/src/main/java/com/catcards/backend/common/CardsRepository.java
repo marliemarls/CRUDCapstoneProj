@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface CardsRepository extends JpaRepository<Card, Integer> {
     List<Card> findByTitle(String title);
+
     List<Card> findByArtistName(String artistName);
 }

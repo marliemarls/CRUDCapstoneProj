@@ -20,6 +20,10 @@ public class MyAppUser {
     private String username;
     private String password;
     private String email;
+    private String gender;
+    private String dob;
+    private String firstName;
+    private String lastName;
     private Boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)

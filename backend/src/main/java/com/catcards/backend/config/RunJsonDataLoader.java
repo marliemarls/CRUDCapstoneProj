@@ -26,8 +26,6 @@ public class RunJsonDataLoader implements CommandLineRunner {
     private final ObjectMapper objectMapper;
 
 
-
-
     public RunJsonDataLoader(CardsRepository cardRepository,UserRepository userRepository, RolesRepository rolesRepository,
                              ObjectMapper objectMapper) {
         this.cardsRepository = cardRepository;

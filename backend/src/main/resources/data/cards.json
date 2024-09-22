@@ -10,6 +10,10 @@
       "username": "user1",
       "password": "password1",
       "email": "user1@email.com",
+      "gender": "nonbinary",
+      "dob": "09/19/1996",
+      "firstName": "marlie",
+      "lastName": "martinez",
       "enabled": true,
       "roles": [
         {

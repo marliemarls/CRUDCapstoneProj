@@ -18,6 +18,7 @@ public class Roles {
     private Integer id;
     private String role;
 
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<MyAppUser> users;
 }

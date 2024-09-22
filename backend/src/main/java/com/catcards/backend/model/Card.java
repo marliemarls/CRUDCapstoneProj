@@ -18,6 +18,7 @@ public class Card {
     private String genre;
     private String image_url;
 
+
     @ManyToOne
     @JoinColumn(name = "creator_id", nullable = false)
     private MyAppUser creator;
