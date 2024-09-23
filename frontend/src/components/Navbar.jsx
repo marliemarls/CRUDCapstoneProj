@@ -33,10 +33,11 @@ function Navbar() {
     </div>
   </div>
   <div className="navbar-center">
-    <a className="btn btn-ghost text-xl" >NextFm</a>
+    <a className="btn btn-ghost text-xl" href='/'>NextFm</a>
   </div>
   <div className="navbar-end">
   <Theme/>
+  <a href='/search'>
     <button className="btn btn-ghost btn-circle">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +52,7 @@ function Navbar() {
           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
     </button>
+    </a>
 
   </div>
 </div>

@@ -1,8 +1,12 @@
 import React from 'react'
+import { Navbar } from './index.js'
 
 function Search() {
-  return (
-    <div></div>
+  return (  
+    <>
+    <Navbar />
+    <div>this is the search page</div>
+    </>
   )
 }
 
