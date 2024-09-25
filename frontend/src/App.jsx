@@ -1,12 +1,21 @@
 // import Routes from "./components/Routes.jsx";
-import { Home, Profile, Login, Navbar, Routes } from "./components/index.js";
+import { useState } from "react";
+import { Home, Login, Register, Profile, Navbar, Routes } from "./components/index.js";
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
 
   return (
-  <>
-<Routes />
-
-  </>
-  )
+    <>
+      <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+      <Routes isLoggedIn={isLoggedIn} handleLogin={handleLogin} />
+    </>
+  );
 }

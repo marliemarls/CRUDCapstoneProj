@@ -34,5 +34,5 @@ public class MyAppUser {
     private Set<Roles> roles;
 
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Card> musicCards = new HashSet<>();
+    private Set<Music> musicCards = new HashSet<>();
 }

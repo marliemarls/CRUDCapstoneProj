@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Card Title 1",
+    "title": "Music Title 1",
     "artistName": "Marlie Martinez",
     "genre": "Rock",
     "image_url": "",
@@ -26,7 +26,7 @@
   },
   {
     "id": 2,
-    "title": "Card Title 2",
+    "title": "Music Title 2",
     "artistName": "Quillachayay",
     "genre": "Wino",
     "image_url": "",
@@ -51,7 +51,7 @@
   },
   {
     "id": 3,
-    "title": "Card Title 3",
+    "title": "Music Title 3",
     "artistName": "Aueuetl",
     "genre": "Bedroom Pop",
     "image_url": "",

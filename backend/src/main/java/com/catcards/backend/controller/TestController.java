@@ -1,6 +1,6 @@
 package com.catcards.backend.controller;
-import com.catcards.backend.common.CardsRepository;
-import com.catcards.backend.model.Card;
+import com.catcards.backend.common.MusicRepository;
+import com.catcards.backend.model.Music;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,18 +12,18 @@ import java.util.List;
 @RestController
 public class TestController {
 
-    private final CardsRepository cardsRepository;
+    private final MusicRepository musicRepository;
 
-    public TestController(CardsRepository cardsRepository) {
-        this.cardsRepository = cardsRepository;
+    public TestController(MusicRepository musicRepository) {
+        this.musicRepository = musicRepository;
     }
 
 
     @CrossOrigin
     @GetMapping("/test")
-    public ResponseEntity<List<Card>> test(){
-        List<Card> cards = cardsRepository.findAll();
-        return ResponseEntity.ok(cards);
+    public ResponseEntity<List<Music>> test(){
+        List<Music> music = musicRepository.findAll();
+        return ResponseEntity.ok(music);
     }
 
 

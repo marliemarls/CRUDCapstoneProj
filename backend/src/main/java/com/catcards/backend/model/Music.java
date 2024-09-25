@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "card")
-public class Card {
+@Table(name = "music")
+public class Music {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;

@@ -1,65 +1,56 @@
 import React from 'react'
 import Buttons from './Buttons.jsx'
+import { Link } from 'react-router-dom';
 import Theme from './Theme.jsx'
 import { Home, Profile, Login } from './index.js';
 
-function Navbar() {
+function Navbar({ isLoggedIn, handleLogout }) {
   return (
-    <>
-    <nav>
-    <div className="navbar bg-base-100">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h16M4 18h7" />
-        </svg>
-      </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a href='/'><Buttons componentName='Home' path='/' element={<Home/>}/></a></li>
-        <li><a href='/profile'><Buttons componentName='Profile' path='/profile' element={<Profile/>}/></a></li>
-      </ul>
-    </div>
-  </div>
-  <div className="navbar-center">
-    <a className="btn btn-ghost text-xl" href='/'>NextFm</a>
-  </div>
-  <div className="navbar-end">
-  <Theme/>
-  <a href='/search'>
-    <button className="btn btn-ghost btn-circle">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-    </button>
-    </a>
 
-  </div>
-</div>
-</nav>
-    </>
-  )
+ <nav className="bg-onyx text-platinum p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex items-center">
+          <Link to="/" className="text-2xl font-bold mr-4">
+            Logo
+          </Link>
+          <Link to="/" className="mr-4 hover:text-keppel">
+            Home
+          </Link>
+        </div>
+        <div className="flex items-center">
+          <Link to="/cart" className="mr-4 hover:text-keppel">
+            🛒 Cart
+          </Link>
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="mr-4 bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
+              >
+                Register
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
 }
+
+
 
 
 export default Navbar

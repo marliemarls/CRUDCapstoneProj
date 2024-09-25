@@ -1,9 +1,8 @@
 package com.catcards.backend.config;
-
-import com.catcards.backend.common.CardsRepository;
+import com.catcards.backend.common.MusicRepository;
 import com.catcards.backend.common.RolesRepository;
 import com.catcards.backend.common.UserRepository;
-import com.catcards.backend.model.Card;
+import com.catcards.backend.model.Music;
 import com.catcards.backend.model.MyAppUser;
 import com.catcards.backend.model.Roles;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -20,15 +19,16 @@ import java.util.List;
 public class RunJsonDataLoader implements CommandLineRunner {
 
     private final Logger logger = org.slf4j.LoggerFactory.getLogger(RunJsonDataLoader.class);
-    private final CardsRepository cardsRepository;
+    private final MusicRepository musicRepository;
     private final UserRepository userRepository;
     private final RolesRepository rolesRepository;
     private final ObjectMapper objectMapper;
 
 
-    public RunJsonDataLoader(CardsRepository cardRepository,UserRepository userRepository, RolesRepository rolesRepository,
+    public RunJsonDataLoader(MusicRepository musicRepository,UserRepository userRepository,
+                             RolesRepository rolesRepository,
                              ObjectMapper objectMapper) {
-        this.cardsRepository = cardRepository;
+        this.musicRepository = musicRepository;
         this.userRepository = userRepository;
         this.rolesRepository = rolesRepository;
         this.objectMapper = objectMapper;
@@ -39,16 +39,16 @@ public class RunJsonDataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         loadRoleData();
         loadUserData();
-        loadCardData();
+        loadMusicData();
     }
 
-    private void loadCardData(){
-        if(cardsRepository.count() == 0){
-            try(InputStream inputStream = getClass().getResourceAsStream("/data/cards.json")){
-                List<Card> cards = objectMapper.readValue(inputStream, new TypeReference<List<Card>>() {
+    private void loadMusicData(){
+        if(musicRepository.count() == 0){
+            try(InputStream inputStream = getClass().getResourceAsStream("/data/music.json")){
+                List<Music> music = objectMapper.readValue(inputStream, new TypeReference<List<Music>>() {
                 });
-                logger.info("Cards loaded from JSON file: {}", cards);
-                cardsRepository.saveAll(cards);
+                logger.info("Music loaded from JSON file: {}", music);
+                musicRepository.saveAll(music);
             } catch (IOException e) {
                 throw new RuntimeException("Unable to load data from JSON file: ", e);
             }
