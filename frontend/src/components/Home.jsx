@@ -5,8 +5,8 @@ import TrackCard from "./TrackCard.jsx";
 function Home() {
   return (
     <>
-      <div>
-        <div>Hey this is home page</div>
+      <div className="flex justify-center">
+        {/* <div>Hey this is home page</div> */}
         <TrackCard />
       </div>
     </>

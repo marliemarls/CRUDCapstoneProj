@@ -21,6 +21,7 @@ const TrackCard = () => {
 
   return (
     <>
+    <div className="grid grid-cols-4">
       {myData === undefined ? 
         (<h1>Music not found</h1>)
       :
@@ -28,17 +29,19 @@ const TrackCard = () => {
         myData.map((item, index) => {
           return (
             <>
-              <div key={index} className="">
+              <div key={index} className="" >
+                {console.log(index)}
                 <h1>{item.title}</h1>
 
                 <div className="card bg-base-100 w-96 shadow-xl border-2 border-gray-300">
-                  <PhotoCard image_url={item.image_url} />
+                  <PhotoCard image_url={item.image_url}/>
                   <Music music_url={item.music_url} />
                 </div>
               </div>
             </>
           );
         }))}
+        </div>
     </>
   );
 };

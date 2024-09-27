@@ -1,13 +1,7 @@
 // import Routes from "./components/Routes.jsx";
 import { useState } from "react";
-import {
-  Home,
-  Login,
-  Register,
-  Profile,
-  Navbar,
-  Routes,
-} from "./components/index.js";
+import {  Home, Login, Register, Profile, Navbar, Routes} from "./components/index.js";
+
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

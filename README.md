@@ -1,24 +1,64 @@
-### FullStack Template
+# CRUDCapstoneProj
 
-This is a fullstack application using React, Node.js, Spring, Spring Boot, MySQL Application. It is a simple application that allows users to create, read, update, and delete notes. The application is split into two parts: the client and the server. The client is a React application that allows users to interact with the application. The server is a Spring Boot application that handles requests from the client and interacts with the database.
+## About The Project
+ `marliemarls`, `CRUDCapstoneProj`, `https://www.linkedin.com/in/marliemart/`, `https://github.com/marliemarls/CRUDCapstoneProj`, `Next_FM`, `Social media app`, `Tailwind CSS`, `Daisy UI`
 
-This application is a music store where artists can create an account to be able to sell their own merch on the site. 
+NextFm is a vibrant social media platform that empowers music enthusiasts and audio creators to share their sonic creations with the world. Built with modern web technologies, including React, Vite, Tailwind CSS, and DaisyUI, SoundWave offers a seamless and intuitive user experience. Users can easily upload their original audio files and music tracks, creating a diverse library of sounds for the community to explore. The platform also features customizable user profiles, allowing individuals to express their unique musical identity. With a sleek and responsive design, SoundWave provides a space for artists to connect, share, and discover new audio content. Whether you're a professional musician, a podcast creator, or simply someone who loves to experiment with sound, SoundWave is your go-to platform for audio-centric social networking.
 
+## Technology Stack
+
+Created in [VSCode].
+
+| Technology | Description                               | Link ↘️ |
+|------------|-------------------------------------------|--------|
+| HTML       | Hyper Text Markup Language                | [HTML] |
+| CSS        | Cascading Style Sheets                    | [CSS]  |
+| JavaScript | High Level, Dynamic, Interpreted Language | [JS]   | 
+| React      | JavaScript library specialized in UX/UI   | [React]|
+| Tailwind   | Tailwind/CSS utility first framework      | [TailW]|
+| Vite       | Local dev server, used for React & Vue    | [Vite] |
+| Daisy UI   | Plugin component library for Tailwind     | [Daisy]|
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
+This is a set of instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.
 
-then run
+### Prerequisites
 
-```bash
-npm install
-npm run dev
-```
+This is how to initiate a Vite project via NPM.
 
-or
+* npm
+  ```sh
+  npm install vite@latest
+  ```
+### Installation
 
-```bash
-yarn install
-yarn dev
-```
+1. Clone the repo
+   ```sh
+   git clone https://github.com/marliemarls/CRUDCapstoneProj
+   ```
+2. Install NPM 
+   ```sh
+   npm install 
+   ```
+3. Install NPM packages
+   ```sh
+   npm install react-router-dom --save
+   ``` 
+4. Install Tailwind CSS
+   ```sh
+   npm install -D tailwindcss
+   npx tailwindcss init
+   ```
 
+<!-- MARKDOWN LINKS & IMAGES -->
 
+[React]: https://react.dev/
+[Vite]: https://vitejs.dev/guide/
+[HTML]: https://html.com/
+[JS]: https://www.javascript.com/
+[CSS]: https://www.w3.org/Style/CSS/Overview.en.html
+[VSCode]: https://code.visualstudio.com/
+[TailW]: https://tailwindcss.com/
+[Daisy]: https://daisyui.com/docs/install/

@@ -1,10 +1,11 @@
 [
   {
     "id": 1,
-    "title": "Music Title 1",
+    "title": "goodBYE",
     "artistName": "Marlie Martinez",
-    "genre": "Rock",
-    "image_url": "",
+    "genre": "Bedroom Pop",
+    "image_url": "goodBYE_img",
+    "music_url": "good_BYE",
     "creator": {
       "id": 1,
       "username": "user1",
@@ -26,10 +27,11 @@
   },
   {
     "id": 2,
-    "title": "Music Title 2",
+    "title": "smallTalk",
     "artistName": "Quillachayay",
     "genre": "Wino",
-    "image_url": "",
+    "image_url": "small_TALK_",
+    "music_url": "small_Talk",
     "creator": {
       "id": 1,
       "username": "user2",
@@ -51,10 +53,11 @@
   },
   {
     "id": 3,
-    "title": "Music Title 3",
+    "title": "heLLo",
     "artistName": "Aueuetl",
     "genre": "Bedroom Pop",
-    "image_url": "",
+    "image_url": "heLLo_img_",
+    "music_url": "heLL_O",
     "creator": {
       "id": 1,
       "username": "user3",
@@ -64,6 +67,32 @@
       "dob": "idk",
       "firstName": "Aue",
       "lastName": "Uetl",
+      "enabled": true,
+      "roles": [
+        {
+          "id": 2,
+          "role": "ROLE_USER"
+        }
+      ],
+      "musicCards": []
+    }
+  },
+  {
+    "id": 4,
+    "title": "5 months",
+    "artistName": "Davi",
+    "genre": "Alternative",
+    "image_url": "5_months",
+    "music_url": "5_months",
+    "creator": {
+      "id": 1,
+      "username": "user4",
+      "password": "password4",
+      "email": "user4@email.com",
+      "gender": "nonbinary",
+      "dob": "idk",
+      "firstName": "Davi",
+      "lastName": "Xochi",
       "enabled": true,
       "roles": [
         {

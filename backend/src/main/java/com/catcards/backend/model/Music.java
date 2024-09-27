@@ -17,6 +17,7 @@ public class Music {
     private String artistName;
     private String genre;
     private String image_url;
+    private String music_url;
 
 
     @ManyToOne
