@@ -1,15 +1,11 @@
 import React, { createContext, useState, useReducer } from "react";
-import { data } from "../data/index.js";
+// import { data } from "../data/index.js";
 
 export const MusicProvider = createContext();
 
 // const initialState = {
 //   data,
-//   cart: [],
-//   wishlist: [],
-//   compare: [],
-//   user: null,
-//   isLoggedIn: false,
+//   playlist: [],
 // };
 
 function reducer(state, action) {

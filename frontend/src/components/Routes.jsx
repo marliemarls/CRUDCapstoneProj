@@ -1,5 +1,5 @@
 import { Route, Routes as R } from "react-router-dom";
-import { Home, Login, Profile, Search, Register, AuthWrapper } from ".";
+import { Home, Login, Profile, Search, Register, AuthWrapper, Playlist } from ".";
 
 function Routes({ isLoggedIn, handleLogin }) {
   return (
@@ -9,7 +9,7 @@ function Routes({ isLoggedIn, handleLogin }) {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
-        {/* <Route path="/playlist" element={<Playlist />} /> */}
+        <Route path="/playlist" element={<Playlist />} />
         <Route
         path="/login"
         element={

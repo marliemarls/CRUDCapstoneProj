@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { MusicProvider } from "../store/ContextProvider";
 
-function Cart() {
+function Playlist() {
   const { state, dispatch } = useContext(MusicProvider);
 
   const removeFromPlaylist = (id) => {
@@ -19,7 +19,7 @@ function Cart() {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
+      <h2 className="text-2xl font-bold mb-4">Your Playlist</h2>
       {state.playlist.length === 0 ? (
         <p>Your playlist is empty.</p>
       ) : (
@@ -50,7 +50,7 @@ function Cart() {
                   +
                 </button>
                 <button
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => removeFromPlaylist(item.id)}
                   className="ml-4 text-red-500"
                 >
                   Remove
@@ -67,4 +67,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Playlist;

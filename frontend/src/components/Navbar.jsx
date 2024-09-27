@@ -1,5 +1,4 @@
 import React from 'react'
-import Buttons from './Buttons.jsx'
 import { Link } from 'react-router-dom';
 import Theme from './Theme.jsx'
 import { Home, Profile, Login } from './index.js';
@@ -8,18 +7,18 @@ function Navbar({ isLoggedIn, handleLogout }) {
   return (
 
  <nav className="bg-onyx text-platinum p-4">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center ">
         <div className="flex items-center">
-          <Link to="/" className="text-2xl font-bold mr-4">
-            Logo
-          </Link>
-          <Link to="/" className="mr-4 hover:text-keppel">
+        <Link to="/" className="mr-4 hover:text-keppel">
             Home
-          </Link>
+          </Link>          
         </div>
+        <Link to="/" className="text-xl font-bold mr-4">
+            NextFM
+          </Link>
         <div className="flex items-center">
-          <Link to="/cart" className="mr-4 hover:text-keppel">
-            🛒 Cart
+          <Link to="/playlist" className="mr-4 hover:text-keppel">
+          🎧 Playlist
           </Link>
           {isLoggedIn ? (
             <button
