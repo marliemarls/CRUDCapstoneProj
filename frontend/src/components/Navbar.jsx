@@ -27,16 +27,18 @@ function Navbar({ isLoggedIn, handleLogout }) {
           NextFM
         </Link>
         <div className="flex items-center">
-          <Link to="/playlist" className="mr-4 hover:text-keppel">
+          {isLoggedIn ? (
+            <>
+            <Link to="/playlist" className="mr-4 hover:text-keppel">
             🎧 Playlist
           </Link>
-          {isLoggedIn ? (
             <button
               onClick={handleLogout}
               className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
             >
               Logout
             </button>
+            </>
           ) : (
             <>
               <Link

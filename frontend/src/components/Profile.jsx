@@ -20,9 +20,9 @@ const [currentTrack, setCurrentTrack] = useState(null)
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        {/* <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-purple-600">MusicSocial</h1>
-        </div>
+        </div> */}
       </header>
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
