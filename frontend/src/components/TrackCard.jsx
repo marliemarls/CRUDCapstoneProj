@@ -30,7 +30,6 @@ const TrackCard = () => {
           return (
             <>
               <div key={index} className="" >
-                {console.log(index)}
                 <h1>{item.title}</h1>
 
                 <div className="card bg-base-100 w-96 shadow-xl border-2 border-gray-300">

@@ -1,9 +1,22 @@
-import { Navbar } from "./index.js"
-import React, { useState } from 'react'
+import { Navbar } from "./index.js";
+import React, { useState, useEffect } from 'react';
 
 function Profile() {
-  
-const [currentTrack, setCurrentTrack] = useState(null)
+const [currentTrack, setCurrentTrack] = useState(null);
+const [myData, setMyData] = useState([]);
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/test");
+      const data = await response.json();
+      setMyData(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  fetchData();
+}, []);
 
   const tracks = [
     { id: 1, title: 'Summer Vibes', artist: 'Chill Beats', duration: '3:45' },
@@ -36,7 +49,7 @@ const [currentTrack, setCurrentTrack] = useState(null)
                   className="w-24 h-24 rounded-full object-cover"
                 />
                 <div>
-                  <h3 className="text-lg font-semibold">Your Name</h3>
+                  <h3 className="text-lg font-semibold"></h3>
                   <p className="text-gray-600">@username</p>
                 </div>
               </div>

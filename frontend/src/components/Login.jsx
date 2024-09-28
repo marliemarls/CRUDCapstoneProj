@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Home} from "."
 
 function Login({isLoggedIn, handleLogin}) {
   const [email, setEmail] = useState("");
@@ -48,6 +49,7 @@ function Login({isLoggedIn, handleLogin}) {
       if (storedUser.email === email && decryptedPassword === password) {
         console.log("Login successful");
         handleLogin();
+        
       } else {
         setError("Invalid email or password");
       }
@@ -60,7 +62,7 @@ function Login({isLoggedIn, handleLogin}) {
   
   return (
     <>
-    {isLoggedIn ? <h1>Login Successful!</h1>  : (<>
+    {isLoggedIn ? <Home />  : (<>
       <div className="flex justify-center items-center h-screen border-black height-fit">
       <form className="space-y-6" onSubmit={handleSubmit}>
         {error && <p className="text-red-500">{error}</p>}
