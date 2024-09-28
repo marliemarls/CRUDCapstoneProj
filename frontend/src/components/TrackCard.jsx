@@ -21,7 +21,7 @@ const TrackCard = () => {
 
   return (
     <>
-    <div className="grid grid-cols-1 lg:grid-cols-4">
+    <div className="grid grid-cols-1 lg:grid-cols-3">
       {myData === undefined ? 
         (<h1>Music not found</h1>)
       :
