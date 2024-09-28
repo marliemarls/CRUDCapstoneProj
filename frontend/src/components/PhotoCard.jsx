@@ -1,7 +1,8 @@
 import React from 'react'
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedImage } from '@cloudinary/react';
-import { fill } from '@cloudinary/url-gen/actions/resize';
+import {byRadius} from "@cloudinary/url-gen/actions/roundCorners";
+
 
 
 const TrackCard = ({image_url}) => {
@@ -11,6 +12,7 @@ const TrackCard = ({image_url}) => {
   // Use this sample image or upload your own via the Media Explorer
   const img = cld
         .image(image_url)
+        .roundCorners(byRadius(10)); 
 
   return (<AdvancedImage cldImg={img}/>);
 

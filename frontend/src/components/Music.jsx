@@ -12,7 +12,7 @@ const Music = ({music_url}) => {
 
   return (
     <div>
-      <audio controls className='w-full'>
+      <audio controls className='w-full border-'>
         <source src={audioUrl} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
