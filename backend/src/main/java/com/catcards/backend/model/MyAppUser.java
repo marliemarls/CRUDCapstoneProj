@@ -18,21 +18,20 @@ public class MyAppUser {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String username;
-    private String password;
     private String email;
+    private String password;
     private String gender;
     private String dob;
     private String firstName;
     private String lastName;
-    private Boolean enabled;
+    // private Boolean enabled;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Roles> roles;
+    // @ManyToMany(fetch = FetchType.EAGER)
+    // @JoinTable(
+    //         name = "user_roles",
+    //         joinColumns = @JoinColumn(name = "user_id"),
+    //         inverseJoinColumns = @JoinColumn(name = "role_id"))
+    // private Set<Roles> roles;
 
-    @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Music> musicCards = new HashSet<>();
+
 }

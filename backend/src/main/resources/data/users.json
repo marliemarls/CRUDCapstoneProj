@@ -2,18 +2,11 @@
   {
     "id": 1,
     "username": "marliesworld",
-    "password": "password123",
     "email": "marliesworkemail@gmail.com",
+    "password": "password123",
     "gender": "nonbinary",
     "dob": "09/19/1996",
     "firstName": "marlie",
-    "lastName": "martinez",
-    "enabled": true,
-    "roles": [
-      {
-        "id": 1,
-        "role": "ROLE_ADMIN"
-      }
-    ]
+    "lastName": "martinez"
   }
 ]

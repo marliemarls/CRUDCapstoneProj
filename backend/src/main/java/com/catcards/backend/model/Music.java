@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class Music {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String title;
     private String artistName;
     private String genre;
@@ -20,7 +21,6 @@ public class Music {
     private String music_url;
 
 
-    @ManyToOne
-    @JoinColumn(name = "creator_id", nullable = false)
-    private MyAppUser creator;
+    @Column(name="myappuser_id", nullable = false)
+    private Integer myAppUserId;
 }

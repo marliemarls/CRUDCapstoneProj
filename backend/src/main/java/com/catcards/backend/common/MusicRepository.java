@@ -12,9 +12,10 @@ import java.util.List;
 public interface MusicRepository extends JpaRepository <Music, Integer> {
 
     List<Music> findByTitle(String title);
+    List<Music> findByMyAppUserId(Integer userId);
 
     List<Music> findByArtistName(String artistName);
 
-    @Query("SELECT m FROM Music m WHERE m.genre = :genre AND m.creator.id = :creatorId")
-    List<Music> findByGenreAndCreatorId(@Param("genre") String genre, @Param("creatorId") Integer creatorId);
+    // @Query("SELECT m FROM Music m WHERE m.genre = :genre AND m.creator.id = :creatorId")
+    // List<Music> findByGenreAndCreatorId(@Param("genre") String genre, @Param("creatorId") Integer creatorId);
 }

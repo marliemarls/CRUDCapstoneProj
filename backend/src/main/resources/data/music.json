@@ -6,24 +6,7 @@
     "genre": "Bedroom Pop",
     "image_url": "goodBYE_img",
     "music_url": "good_BYE",
-    "creator": {
-      "id": 1,
-      "username": "user1",
-      "password": "password1",
-      "email": "user1@email.com",
-      "gender": "nonbinary",
-      "dob": "09/19/1996",
-      "firstName": "marlie",
-      "lastName": "martinez",
-      "enabled": true,
-      "roles": [
-        {
-          "id": 2,
-          "role": "ROLE_USER"
-        }
-      ],
-      "musicCards": []
-    }
+    "myAppUserId": 1
   },
   {
     "id": 2,
@@ -32,24 +15,7 @@
     "genre": "Wino",
     "image_url": "small_TALK_",
     "music_url": "small_Talk",
-    "creator": {
-      "id": 1,
-      "username": "user2",
-      "password": "password2",
-      "email": "user2@email.com",
-      "gender": "nonbinary",
-      "dob": "idk",
-      "firstName": "Quilla",
-      "lastName": "Chayay",
-      "enabled": true,
-      "roles": [
-        {
-          "id": 2,
-          "role": "ROLE_USER"
-        }
-      ],
-      "musicCards": []
-    }
+    "myAppUserId": 1
   },
   {
     "id": 3,
@@ -58,24 +24,7 @@
     "genre": "Bedroom Pop",
     "image_url": "heLLo_img_",
     "music_url": "heLL_O",
-    "creator": {
-      "id": 1,
-      "username": "user3",
-      "password": "password3",
-      "email": "user3@email.com",
-      "gender": "x",
-      "dob": "idk",
-      "firstName": "Aue",
-      "lastName": "Uetl",
-      "enabled": true,
-      "roles": [
-        {
-          "id": 2,
-          "role": "ROLE_USER"
-        }
-      ],
-      "musicCards": []
-    }
+    "myAppUserId": 1
   },
   {
     "id": 4,
@@ -84,23 +33,6 @@
     "genre": "Alternative",
     "image_url": "5_months",
     "music_url": "5_months",
-    "creator": {
-      "id": 1,
-      "username": "user4",
-      "password": "password4",
-      "email": "user4@email.com",
-      "gender": "nonbinary",
-      "dob": "idk",
-      "firstName": "Davi",
-      "lastName": "Xochi",
-      "enabled": true,
-      "roles": [
-        {
-          "id": 2,
-          "role": "ROLE_USER"
-        }
-      ],
-      "musicCards": []
-    }
+    "myAppUserId": 1
   }
 ]
