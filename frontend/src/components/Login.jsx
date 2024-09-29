@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import {Home} from "."
 
-function Login({isLoggedIn, handleLogin}) {
+function Login({handleLogin}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const decryptPassword = async (encryptedPassword, key, iv) => {
     const decoder = new TextDecoder();
@@ -47,9 +48,9 @@ function Login({isLoggedIn, handleLogin}) {
 
     
       if (storedUser.email === email && decryptedPassword === password) {
-        console.log("Login successful");
+        console.log("Login successful"); 
         handleLogin();
-        
+        setIsLoggedIn(true);
       } else {
         setError("Invalid email or password");
       }
@@ -60,56 +61,51 @@ function Login({isLoggedIn, handleLogin}) {
   };
 
   
-  return (
+  return  (
     <>
-    {isLoggedIn ? <Home />  : (<>
-      <div className="flex justify-center items-center h-screen border-black height-fit">
-      <form className="space-y-6" onSubmit={handleSubmit}>
-        {error && <p className="text-red-500">{error}</p>}
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-onyx">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
-          />
+        <div className="prefix-hero max-h-full rounded">
+          <div className="hero-content flex-col ">
+            <div className="card flex-shrink-0 w-full max-w-sm max-h-sm shadow-2xl bg-base-100 ">
+              <form className="card-body" onSubmit={handleSubmit}>
+                {error && <div className="alert alert-error">{error}</div>}
+                <div className="form-control">
+                  <label className="label" htmlFor="email">
+                    <span className="label-text">Email</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label" htmlFor="password">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control mt-6">
+                  <button type="submit" className="btn btn-primary">Sign In</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div>
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium text-onyx"
-          >
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
-          />
-        </div>
-        <div>
-          <button
-            type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-platinum bg-saffron hover:bg-keppel focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-keppel btn-secondary"
-          >
-            Sign In
-          </button>
-        </div>
-      </form>
-      </div>
-      </>)}
-      </>
-    );
+    </>
+  );
 }
 
+// ... export statement ...
 export default Login;

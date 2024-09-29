@@ -11,17 +11,11 @@ export default {
   },
   daisyui: {
     themes: [
-      {
-        mytheme: {
-          "primary": "#a991f7",
-          "secondary": "#f6d860",
-          "accent": "#37cdbe",
-          "neutral": "#3d4451",
-          "base-100": "#ffffff",
-        },
-      },
-      "aqua", "forest",
+      "valentine", "forest",
     ],
+    base: true, // applies background color and foreground color for root element by default
+    styled: true, // include daisyUI colors and design decisions for all components
+    utils: true, // adds responsive and modifier utility classes
   },
   plugins: [require('daisyui')],
 }

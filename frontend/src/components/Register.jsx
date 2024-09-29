@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Register() {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -36,9 +38,9 @@ function Register() {
     e.preventDefault();
     try {
       const { encryptedPassword, key, iv } = await encryptPassword(password);
-      const user = { name, email, encryptedPassword, key, iv };
+      const user = { firstName, lastName, username, email, encryptedPassword, key, iv };
       localStorage.setItem("user", JSON.stringify(user));
-      console.log("User registered:", name, email);
+      console.log("User registered:", username, firstName, lastName, email);
       setIsRegistered(true);
     } catch (error) {
       console.error("Registration error:", error);
@@ -69,16 +71,44 @@ function Register() {
     <form className="space-y-6" onSubmit={HandleSubmit}>
       {error && <p className="text-red-500">{error}</p>}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-onyx">
-          Full Name
+        <label htmlFor="firstName" className="block text-sm font-medium text-onyx">
+          First Name
         </label>
         <input
           type="text"
-          id="name"
-          name="name"
+          id="firstName"
+          name="firstName"
           required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
+        />
+      </div>
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-onyx">
+          Last Name
+        </label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          required
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
+        />
+      </div>
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-onyx">
+          User Name
+        </label>
+        <input
+          type="text"
+          id="username"
+          name="userame"
+          required
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
         />
       </div>

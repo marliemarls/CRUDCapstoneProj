@@ -10,7 +10,7 @@ function Navbar({ isLoggedIn, handleLogout }) {
         <div className="flex items-center">
           {isLoggedIn ? (
             <>
-              <Link to="/" className="mr-4 hover:text-keppel">
+              <Link to="/" className="mr-4 hover:text-keppel ">
                 Home
               </Link>
               <Link to="/profile" className="mr-4 hover:text-keppel">
@@ -29,9 +29,6 @@ function Navbar({ isLoggedIn, handleLogout }) {
         <div className="flex items-center">
           {isLoggedIn ? (
             <>
-            <Link to="/playlist" className="mr-4 hover:text-keppel">
-            🎧 Playlist
-          </Link>
             <button
               onClick={handleLogout}
               className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
