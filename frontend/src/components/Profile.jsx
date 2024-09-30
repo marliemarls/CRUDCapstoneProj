@@ -8,8 +8,9 @@ const [myData, setMyData] = useState([]);
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/test");
+      const response = await fetch("http://localhost:8080/api/users");
       const data = await response.json();
+      console.log(data)
       setMyData(data);
     } catch (error) {
       console.error("Error fetching data:", error);

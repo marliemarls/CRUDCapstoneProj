@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Theme from "./Theme.jsx";
-import { Home, Profile, Login } from "./index.js";
+import { Home, Profile, Login, TrackUpload } from "./index.js";
 
 function Navbar({ isLoggedIn, handleLogout }) {
   return (
-    <nav className="bg-onyx text-platinum p-4">
+    <nav className="bg-neutral-content text-platinum p-4">
       <div className="container mx-auto flex justify-between items-center ">
         <div className="flex items-center">
           {isLoggedIn ? (
@@ -29,12 +29,18 @@ function Navbar({ isLoggedIn, handleLogout }) {
         <div className="flex items-center">
           {isLoggedIn ? (
             <>
-            <button
-              onClick={handleLogout}
-              className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
-            >
-              Logout
-            </button>
+              <Link
+                to="/upload"
+                className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
+              >
+                Upload
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
+              >
+                Logout
+              </button>
             </>
           ) : (
             <>
@@ -44,7 +50,7 @@ function Navbar({ isLoggedIn, handleLogout }) {
               >
                 Login
               </Link>
-              
+
               <Link
                 to="/register"
                 className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
@@ -53,6 +59,7 @@ function Navbar({ isLoggedIn, handleLogout }) {
               </Link>
             </>
           )}
+
           <Theme />
         </div>
       </div>

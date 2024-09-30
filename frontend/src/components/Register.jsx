@@ -50,108 +50,122 @@ function Register() {
 
   if (isRegistered) {
     return (
-      <div className="text-center">
-        <h2 className="text-2xl font-bold mb-4 text-keppel">
-          Registration Successful!
-        </h2>
-        <p className="mb-4">
-          Thank you for registering. You can now log in to your account.
-        </p>
-        <Link
-          to="/login"
-          className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
-        >
-          Go to Login
-        </Link>
-      </div>
+      
+        <div className="card-body px-8 py-6 mt-4 text-left bg-white shadow-lg rounded-lg">
+          <h2 className="text-2xl font-bold mb-4 text-center text-keppel">
+            Registration Successful!
+          </h2>
+          <p className="mb-4 text-center">
+            Thank you for registering. You can now log in to your account.
+          </p>
+          <div className="flex justify-center">
+            <Link
+              to="/login"
+              className="btn btn-primary w-full max-w-xs bg-saffron hover:bg-keppel text-onyx"
+            >
+              Go to Login
+            </Link>
+          </div>
+        </div>
+      
     );
   }
 
   return (
-    <form className="space-y-6" onSubmit={HandleSubmit}>
-      {error && <p className="text-red-500">{error}</p>}
-      <div>
-        <label htmlFor="firstName" className="block text-sm font-medium text-onyx">
-          First Name
-        </label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          required
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
-        />
-      </div>
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-onyx">
-          Last Name
-        </label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          required
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
-        />
-      </div>
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-onyx">
-          User Name
-        </label>
-        <input
-          type="text"
-          id="username"
-          name="userame"
-          required
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
-        />
-      </div>
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-onyx">
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
-        />
-      </div>
-      <div>
-        <label
-          htmlFor="password"
-          className="block text-sm font-medium text-onyx"
-        >
-          Password
-        </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-timberwolf border border-onyx rounded-md shadow-sm focus:outline-none focus:ring-keppel focus:border-keppel"
-        />
-      </div>
-      <div>
-        <button
-          type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-platinum bg-saffron hover:bg-keppel focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-keppel"
-        >
-          Sign Up
-        </button>
-      </div>
-    </form>
+    <>
+
+        <form onSubmit={HandleSubmit}>
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+          <div className="mt-4">
+            <div className="mb-4">
+              <label htmlFor="firstName" className="block text-sm font-medium text-onyx">
+                First Name
+              </label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="lastName" className="block text-sm font-medium text-onyx">
+                Last Name
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="username" className="block text-sm font-medium text-onyx">
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-sm font-medium text-onyx">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="password" className="block text-sm font-medium text-onyx">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="flex items-baseline justify-between">
+              <button
+                type="submit"
+                className="btn btn-primary w-full px-6 py-2 mt-4 text-white bg-saffron rounded-lg hover:bg-keppel"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </form>
+        <div className="mt-4 text-center">
+          <p className="text-sm">
+            Already have an account?{" "}
+            <Link to="/login" className="text-keppel hover:underline">
+              Log in
+            </Link>
+          </p>
+        </div>
+        </>
   );
 }
 

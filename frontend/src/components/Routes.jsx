@@ -1,6 +1,15 @@
 import React from "react";
 import { Route, Routes as R } from "react-router-dom";
-import {Home, Login, Profile, Search, Register, AuthWrapper, Playlist,} from ".";
+import {
+  Home,
+  Login,
+  Profile,
+  Search,
+  Register,
+  AuthWrapper,
+  Playlist,
+  TrackUpload,
+} from ".";
 
 function Routes({ isLoggedIn, handleLogin }) {
   return (
@@ -9,6 +18,14 @@ function Routes({ isLoggedIn, handleLogin }) {
       <Route path="/profile" element={<Profile />} />
       <Route path="/search" element={<Search />} />
       <Route path="/playlist" element={<Playlist />} />
+      <Route
+        path="/upload"
+        element={
+          <AuthWrapper title="Upload Track">
+            <TrackUpload />
+          </AuthWrapper>
+        }
+      />
       <Route
         path="/login"
         element={

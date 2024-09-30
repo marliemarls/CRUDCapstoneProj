@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import {Home} from "."
+import { Link } from "react-router-dom";
 
-function Login({handleLogin}) {
+function Login({ handleLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -27,7 +27,6 @@ function Login({handleLogin}) {
     return decoder.decode(decryptedData);
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -46,9 +45,8 @@ function Login({handleLogin}) {
         storedUser.iv
       );
 
-    
       if (storedUser.email === email && decryptedPassword === password) {
-        console.log("Login successful"); 
+        console.log("Login successful");
         handleLogin();
         setIsLoggedIn(true);
       } else {
@@ -60,52 +58,82 @@ function Login({handleLogin}) {
     }
   };
 
-  
-  return  (
-    <>
-        <div className="prefix-hero max-h-full rounded">
-          <div className="hero-content flex-col ">
-            <div className="card flex-shrink-0 w-full max-w-sm max-h-sm shadow-2xl bg-base-100 ">
-              <form className="card-body" onSubmit={handleSubmit}>
-                {error && <div className="alert alert-error">{error}</div>}
-                <div className="form-control">
-                  <label className="label" htmlFor="email">
-                    <span className="label-text">Email</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="input input-bordered"
-                  />
-                </div>
-                <div className="form-control">
-                  <label className="label" htmlFor="password">
-                    <span className="label-text">Password</span>
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="input input-bordered"
-                  />
-                </div>
-                <div className="form-control mt-6">
-                  <button type="submit" className="btn btn-primary">Sign In</button>
-                </div>
-              </form>
-            </div>
+  if (isLoggedIn) {
+    return (
+     
+        <div className="card=body px-8 py-6 mt-4 text-left bg-white shadow-lg rounded-lg">
+          <h2 className="text-2xl font-bold mb-4 text-center text-keppel">
+            Login Successful!
+          </h2>
+          <p className="mb-4 text-center">
+            Welcome back! You are now logged in.
+          </p>
+          <div className="flex justify-center">
+            <Link
+              to="/"
+              className="btn btn-primary w-full max-w-xs bg-saffron hover:bg-keppel text-onyx"
+            >
+              Go to Home
+            </Link>
           </div>
         </div>
-    </>
+
+    );
+  }
+
+  return (
+<>
+        <form onSubmit={handleSubmit}>
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+          <div className="mt-4">
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-sm font-medium text-onyx">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="password" className="block text-sm font-medium text-onyx">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="flex items-baseline justify-between">
+              <button
+                type="submit"
+                className="btn btn-primary w-full px-6 py-2 mt-4 text-white bg-saffron rounded-lg hover:bg-keppel"
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
+        </form>
+        <div className="mt-4 text-center">
+          <p className="text-sm">
+            Don't have an account?{" "}
+            <Link to="/register" className="text-keppel hover:underline">
+              Register here
+            </Link>
+          </p>
+        </div>
+        </>
   );
 }
 
-// ... export statement ...
 export default Login;
