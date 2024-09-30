@@ -9,15 +9,17 @@ import {
   AuthWrapper,
   Playlist,
   TrackUpload,
+  LandingPage,
 } from ".";
 
-function Routes({ isLoggedIn, handleLogin }) {
+function Routes({ handleLogin }) {
   return (
     <R>
       <Route path="/" element={<Home />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/search" element={<Search />} />
       <Route path="/playlist" element={<Playlist />} />
+      <Route path="/landing" element={<LandingPage />} />
       <Route
         path="/upload"
         element={

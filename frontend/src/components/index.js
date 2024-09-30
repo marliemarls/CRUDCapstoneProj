@@ -11,4 +11,4 @@ export {default as TrackCard} from './TrackCard.jsx'
 export {default as PhotoCard} from './PhotoCard.jsx'
 export {default as Music} from './Music.jsx'
 export {default as TrackUpload} from './TrackUpload.jsx'
-
+export {default as LandingPage} from './LandingPage.jsx'

@@ -60,7 +60,7 @@ function Navbar({ isLoggedIn, handleLogout }) {
             </>
           )}
 
-          <Theme />
+          {/* <Theme /> */}
         </div>
       </div>
     </nav>
