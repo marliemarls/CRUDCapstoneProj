@@ -2,6 +2,7 @@ import React from 'react';
 import { Cloudinary } from '@cloudinary/url-gen';
 
 const Music = ({music_url}) => {
+  
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'dy6n13boh'

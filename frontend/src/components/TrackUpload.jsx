@@ -1,48 +1,76 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function TrackUpload() {
   const [title, setTitle] = useState('');
   const [artistName, setArtistName] = useState('');
   const [genre, setGenre] = useState('');
-  const [audioBase64, setAudioBase64] = useState('');
-  const [imageBase64, setImageBase64] = useState('');
+  const [audioFile, setAudioFile] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
   const [error, setError] = useState('');
   const [isUploading, setIsUploading] = useState(false);
+  
   const navigate = useNavigate();
 
-  const convertToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
-  };
+  const uploadAudioToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'ioytcjyz'); // Replace with your actual upload preset
+    formData.append('cloud_name', 'dy6n13boh');
 
-  const handleAudioUpload = async (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      try {
-        const base64String = await convertToBase64(file);
-        setAudioBase64(base64String);
-      } catch (error) {
-        console.error('Error converting audio to base64:', error);
-        setError('Failed to process audio file. Please try again.');
+    try {
+      const response = await fetch('https://api.cloudinary.com/v1_1/dy6n13boh/video/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Audio upload to Cloudinary failed');
       }
+
+      const data = await response.json();
+      return data.secure_url;
+    } catch (error) {
+      console.error('Cloudinary audio upload error:', error);
+      throw error;
     }
   };
 
-  const handleImageUpload = async (event) => {
+  const uploadImageToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'ofxexmap'); // Replace with your actual upload preset
+    formData.append('cloud_name', 'dy6n13boh');
+
+    try {
+      const response = await fetch('https://api.cloudinary.com/v1_1/dy6n13boh/image/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Image upload to Cloudinary failed');
+      }
+
+      const data = await response.json();
+      return data.secure_url;
+    } catch (error) {
+      console.error('Cloudinary image upload error:', error);
+      throw error;
+    }
+  };
+
+  const handleAudioUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      try {
-        const base64String = await convertToBase64(file);
-        setImageBase64(base64String);
-      } catch (error) {
-        console.error('Error converting image to base64:', error);
-        setError('Failed to process image file. Please try again.');
-      }
+      setAudioFile(file);
+    }
+  };
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImageFile(file);
     }
   };
 
@@ -51,21 +79,25 @@ export default function TrackUpload() {
     setError('');
     setIsUploading(true);
 
-    if (!audioBase64 || !imageBase64) {
+    if (!audioFile || !imageFile) {
       setError('Please select both an audio file and an image.');
       setIsUploading(false);
       return;
     }
 
-    const trackData = {
-      title,
-      artist: artistName,
-      genre,
-      audioFile: audioBase64,
-      imageFile: imageBase64
-    };
-
     try {
+      const audioUrl = await uploadAudioToCloudinary(audioFile);
+      const imageUrl = await uploadImageToCloudinary(imageFile);
+
+      const trackData = {
+        title,
+        artist: artistName,
+        genre,
+        audioFile: audioUrl,
+        imageFile: imageUrl
+      };
+
+      console.log(trackData)
       const response = await fetch('http://localhost:8080/api/music/upload', {
         method: 'POST',
         headers: {

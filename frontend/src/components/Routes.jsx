@@ -4,10 +4,8 @@ import {
   Home,
   Login,
   Profile,
-  Search,
   Register,
   AuthWrapper,
-  Playlist,
   TrackUpload,
   LandingPage,
 } from ".";
@@ -15,11 +13,9 @@ import {
 function Routes({ handleLogin }) {
   return (
     <R>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/search" element={<Search />} />
-      <Route path="/playlist" element={<Playlist />} />
-      <Route path="/landing" element={<LandingPage />} />
       <Route
         path="/upload"
         element={

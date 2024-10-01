@@ -11,7 +11,7 @@ const TrackCard = () => {
         const response = await fetch("http://localhost:8080/test");
         const data = await response.json();
         setMyData(data);
-        
+        console.log(data)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -41,7 +41,7 @@ const TrackCard = () => {
                   <h2 className="card-title text-center text-base-content justify-center mb-4">
                     {item.title}
                   </h2>
-                  <div className="space-y-4 bg-transparent">
+                  <div className="space-y-4">
                     <PhotoCard image_url={item.image_url} />
                     <Music music_url={item.music_url} />
                   </div>

@@ -11,7 +11,7 @@ export default {
   },
   daisyui: {
     themes: [
-      "valentine", "forest",
+      "cupcake", "dark",
     ],
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 function Login({ handleLogin }) {
   const [email, setEmail] = useState("");
@@ -56,8 +56,14 @@ function Login({ handleLogin }) {
       console.error("Login error:", error);
       setError("An error occurred during login");
     }
-  };
 
+
+   
+  };
+  const navi = useNavigate();
+ const handleRedi = (e) => {
+    navi('/login');
+    }
   if (isLoggedIn) {
     return (
      
@@ -70,7 +76,7 @@ function Login({ handleLogin }) {
           </p>
           <div className="flex justify-center">
             <Link
-              to="/"
+              to="/home"
               className="btn btn-primary w-full max-w-xs bg-saffron hover:bg-keppel text-onyx"
             >
               Go to Home
@@ -118,6 +124,7 @@ function Login({ handleLogin }) {
               <button
                 type="submit"
                 className="btn btn-primary w-full px-6 py-2 mt-4 text-white bg-saffron rounded-lg hover:bg-keppel"
+                onClick={handleRedi}
               >
                 Sign In
               </button>

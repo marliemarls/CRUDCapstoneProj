@@ -2,12 +2,16 @@ import React from "react";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
 import { byRadius } from "@cloudinary/url-gen/actions/roundCorners";
+import { extractPublicId } from "cloudinary-build-url";
 
-const TrackCard = ({ image_url }) => {
+const PhotoCard = ({ image_url }) => {
+  const publicId = extractPublicId(image_url) 
+
+  
   const cld = new Cloudinary({ cloud: { cloudName: "dy6n13boh" } });
 
   // Use this sample image or upload your own via the Media Explorer
-  const img = cld.image(image_url).roundCorners(byRadius(10));
+  const img = cld.image(image_url).roundCorners(byRadius(35));
 
   return (
     <>
@@ -16,4 +20,4 @@ const TrackCard = ({ image_url }) => {
   );
 };
 
-export default TrackCard;
+export default PhotoCard;

@@ -3,8 +3,8 @@ import { Navbar } from "./index.js";
 
 function Profile() {
   const [userData, setUserData] = useState(null);
-  const [tracks, setTracks] = useState([]);
-  const [friends, setFriends] = useState([]);
+  const [music, setMusic] = useState([]);
+  // const [friends, setFriends] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -12,23 +12,22 @@ function Profile() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const [userResponse, musicResponse, friendsResponse] = await Promise.all([
-          fetch("http://localhost:8080/api/users/current"),
-          fetch("http://localhost:8080/api/music"),
-          fetch("http://localhost:8080/api/friends")
+        const [userResponse, musicResponse] = await Promise.all([
+          fetch("http://localhost:8080/api/users"),
+          fetch("http://localhost:8080/api/music")
         ]);
 
-        if (!userResponse.ok || !musicResponse.ok || !friendsResponse.ok) {
+        console.log(userResponse)
+        if (!userResponse.ok || !musicResponse.ok) {
           throw new Error('Failed to fetch data');
         }
 
         const userData = await userResponse.json();
         const musicData = await musicResponse.json();
-        const friendsData = await friendsResponse.json();
+
 
         setUserData(userData);
-        setTracks(tracksData);
-        setFriends(friendsData);
+        setTracks(musicData);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError('Failed to load profile data. Please try again later.');
@@ -72,11 +71,11 @@ function Profile() {
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-semibold mb-4">Music Feed</h2>
               <ul className="space-y-4">
-                {tracks.map((track) => (
-                  <li key={track.id} className="flex items-center justify-between">
+                {music.map((song) => (
+                  <li key={song.id} className="flex items-center justify-between">
                     <div>
-                      <h3 className="font-semibold">{track.title}</h3>
-                      <p className="text-sm text-gray-600">{track.artist}</p>
+                      <h3 className="font-semibold">{song.title}</h3>
+                      <p className="text-sm text-gray-600">{song.artistName}</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <button className="text-gray-600 hover:text-purple-600">
@@ -94,7 +93,7 @@ function Profile() {
                           <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                         </svg>
                       </button>
-                      <span className="text-sm text-gray-600">{track.duration}</span>
+                      {/* <span className="text-sm text-gray-600">{music.duration}</span> */}
                     </div>
                   </li>
                 ))}
@@ -102,7 +101,7 @@ function Profile() {
             </div>
           </div>
           <div>
-            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+            {/* <div className="bg-white rounded-lg shadow-md p-6 mb-8">
               <h2 className="text-xl font-semibold mb-4">Friends</h2>
               <ul className="space-y-4">
                 {friends.map((friend) => (
@@ -115,7 +114,7 @@ function Profile() {
               <button className="mt-4 w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition duration-300">
                 Find More Friends
               </button>
-            </div>
+            </div> */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-semibold mb-4">Customize Your Profile</h2>
               <button className="w-full bg-pink-500 text-white py-2 rounded-md hover:bg-pink-600 transition duration-300 mb-2">

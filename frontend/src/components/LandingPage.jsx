@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 export default function LandingPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const history = useHistory();
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+//   const history = useHistory();
 
-  const handleLogin = () => {
-    
-  }
+  // const handleLogin = () => {
+  //   setIsLoggedIn(true);
+  //   history.push('/home');
+  // }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-400 to-indigo-600 flex flex-col justify-center items-center p-4">
@@ -23,8 +25,8 @@ export default function LandingPage() {
             <Link to="/login" className="btn btn-primary w-full">
               Login
             </Link>
-            <Link to="/signup" className="btn btn-secondary w-full">
-              Sign Up
+            <Link to="/register" className="btn btn-secondary w-full">
+              Register
             </Link>
           </div>
         </div>
