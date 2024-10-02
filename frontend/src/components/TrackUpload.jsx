@@ -1,61 +1,73 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { setConfig } from "cloudinary-build-url";
+import { extractPublicId } from "cloudinary-build-url";
+
 
 export default function TrackUpload() {
-  const [title, setTitle] = useState('');
-  const [artistName, setArtistName] = useState('');
-  const [genre, setGenre] = useState('');
+  const [title, setTitle] = useState("");
+  const [artistName, setArtistName] = useState("");
+  const [genre, setGenre] = useState("");
   const [audioFile, setAudioFile] = useState(null);
   const [imageFile, setImageFile] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isUploading, setIsUploading] = useState(false);
-  
+
   const navigate = useNavigate();
 
   const uploadAudioToCloudinary = async (file) => {
+    setConfig({
+      cloudName: "dy6n13boh",
+    });
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'ioytcjyz'); // Replace with your actual upload preset
-    formData.append('cloud_name', 'dy6n13boh');
+    formData.append("file", file);
+    formData.append("upload_preset", "ioytcjyz"); // Replace with your actual upload preset
+    formData.append("cloud_name", "dy6n13boh");
 
     try {
-      const response = await fetch('https://api.cloudinary.com/v1_1/dy6n13boh/video/upload', {
-        method: 'POST',
-        body: formData,
-      });
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dy6n13boh/video/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
-        throw new Error('Audio upload to Cloudinary failed');
+        throw new Error("Audio upload to Cloudinary failed");
       }
 
       const data = await response.json();
       return data.secure_url;
     } catch (error) {
-      console.error('Cloudinary audio upload error:', error);
+      console.error("Cloudinary audio upload error:", error);
       throw error;
     }
   };
 
   const uploadImageToCloudinary = async (file) => {
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'ofxexmap'); // Replace with your actual upload preset
-    formData.append('cloud_name', 'dy6n13boh');
+    formData.append("file", file);
+    formData.append("upload_preset", "ofxexmap"); // Replace with your actual upload preset
+    formData.append("cloud_name", "dy6n13boh");
 
     try {
-      const response = await fetch('https://api.cloudinary.com/v1_1/dy6n13boh/image/upload', {
-        method: 'POST',
-        body: formData,
-      });
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dy6n13boh/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
-        throw new Error('Image upload to Cloudinary failed');
+        throw new Error("Image upload to Cloudinary failed");
       }
 
       const data = await response.json();
       return data.secure_url;
     } catch (error) {
-      console.error('Cloudinary image upload error:', error);
+      console.error("Cloudinary image upload error:", error);
       throw error;
     }
   };
@@ -76,11 +88,11 @@ export default function TrackUpload() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setIsUploading(true);
 
     if (!audioFile || !imageFile) {
-      setError('Please select both an audio file and an image.');
+      setError("Please select both an audio file and an image.");
       setIsUploading(false);
       return;
     }
@@ -88,34 +100,39 @@ export default function TrackUpload() {
     try {
       const audioUrl = await uploadAudioToCloudinary(audioFile);
       const imageUrl = await uploadImageToCloudinary(imageFile);
+      const publicMusicId = extractPublicId(audioUrl) 
+      const publicImageId = extractPublicId(imageUrl) 
 
       const trackData = {
         title,
         artistName: artistName,
         genre,
-        image_url: imageUrl,
-        music_url: audioUrl
+        image_url: publicImageId,
+        music_url: publicMusicId,
       };
 
-      console.log(trackData)
-      const response = await fetch('http://localhost:8080/api/users/1/addMusic', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(trackData),
-      });
+      console.log(trackData);
+      const response = await fetch(
+        "http://localhost:8080/api/users/1/addMusic",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(trackData),
+        }
+      );
 
       if (!response.ok) {
-        throw new Error('Upload failed');
+        throw new Error("Upload failed");
       }
 
       const result = await response.json();
-      console.log('Upload successful:', result);
-      navigate('/profile');
+      console.log("Upload successful:", result);
+      navigate("/profile");
     } catch (error) {
-      console.error('Upload error:', error);
-      setError('An error occurred during upload. Please try again.');
+      console.error("Upload error:", error);
+      setError("An error occurred during upload. Please try again.");
     } finally {
       setIsUploading(false);
     }
@@ -123,7 +140,9 @@ export default function TrackUpload() {
 
   return (
     <div className="w-full max-w-md px-8 py-6 mt-4 text-left bg-white shadow-lg rounded-lg">
-      <h3 className="text-2xl font-bold text-center text-primary mb-4">Upload Track</h3>
+      <h3 className="text-2xl font-bold text-center text-primary mb-4">
+        Upload Track
+      </h3>
       <form onSubmit={handleSubmit}>
         {error && <p className="text-error text-center mb-4">{error}</p>}
         <div className="mt-4">
@@ -198,7 +217,7 @@ export default function TrackUpload() {
               disabled={isUploading}
               className="btn btn-primary w-full"
             >
-              {isUploading ? 'Uploading...' : 'Upload Track'}
+              {isUploading ? "Uploading..." : "Upload Track"}
             </button>
           </div>
         </div>

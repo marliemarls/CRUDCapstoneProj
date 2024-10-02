@@ -6,6 +6,8 @@ function Register() {
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [dob, setDob] = useState("");
+  const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isRegistered, setIsRegistered] = useState(false);
@@ -38,7 +40,12 @@ function Register() {
     e.preventDefault();
     try {
       const { encryptedPassword, key, iv } = await encryptPassword(password);
-      const user = { firstName, lastName, username, email, encryptedPassword, key, iv };
+      const response = await fetch ("http://localhost:8080/api/users/register");
+      const mydata = await response.json();
+      console.log(mydata);
+      
+      const user = { firstName, lastName, username, email, dob, gender, encryptedPassword, key, iv };
+      console.log(user)
       localStorage.setItem("user", JSON.stringify(user));
       console.log("User registered:", username, firstName, lastName, email);
       setIsRegistered(true);
@@ -120,6 +127,34 @@ function Register() {
               />
             </div>
             <div className="mb-4">
+              <label htmlFor="lastName" className="block text-sm font-medium text-onyx">
+                Birthdate
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                value={dob}
+                onChange={(e) => setDob(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="lastName" className="block text-sm font-medium text-onyx">
+                Gender
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
+              />
+            </div>
+            <div className="mb-4">
               <label htmlFor="email" className="block text-sm font-medium text-onyx">
                 Email
               </label>
@@ -133,6 +168,7 @@ function Register() {
                 className="w-full px-3 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-keppel"
               />
             </div>
+
             <div className="mb-4">
               <label htmlFor="password" className="block text-sm font-medium text-onyx">
                 Password

@@ -5,17 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.catcards.backend.common.MusicRepository;
 import com.catcards.backend.model.Music;
 import com.catcards.backend.service.MusicService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/music")
 public class MusicController {
@@ -23,9 +19,7 @@ public class MusicController {
 
     @Autowired
     private MusicRepository musicRepository;
-
-
-
+    
 
     @GetMapping("/allMusic")
     public ResponseEntity<?> getAllMusic() {

@@ -5,28 +5,18 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.catcards.DTO.LoginRequest;
-import com.catcards.DTO.MusicRequest;
+import DTO.LoginRequest;
+import DTO.MusicRequest;
 import com.catcards.backend.common.UserRepository;
 import com.catcards.backend.model.Music;
 import com.catcards.backend.model.MyAppUser;
 import com.catcards.backend.service.MusicService;
 import com.catcards.backend.service.UserService;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PutMapping;
 
-
-
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -42,7 +32,11 @@ public class UserController {
     @Autowired
     private MusicService musicService;
 
-
+    @GetMapping("/allUsers")
+    public ResponseEntity<?> getAllMusic() {
+        List<MyAppUser> allUsers =  userRepository.findAll();
+        return ResponseEntity.ok().body(allUsers);
+    }
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody MyAppUser newUser) {
@@ -61,7 +55,6 @@ public class UserController {
         Optional<MyAppUser> user = userService.login(loginRequest);
         System.out.println(user);
         if(user.isPresent()){
-
             return ResponseEntity.ok().body(user.get());
         }
 
@@ -92,6 +85,12 @@ public class UserController {
         return ResponseEntity.ok().body(allUsersMusic);
     }
 
+    @GetMapping("/{userId}")
+    public ResponseEntity<?>getUsersInfo(@PathVariable Integer userId) {
+        Optional<MyAppUser> userInfo = userService.findById(userId);
+
+        return ResponseEntity.ok().body(userInfo);
+    }
 
     //You can pass the app user id in the path variable and do a check in the service to see if it matches with the music found in our database, ie compare myappuser.id = muuic.myappuserid
     @PutMapping("/editMusic/{musicId}")

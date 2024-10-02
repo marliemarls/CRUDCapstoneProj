@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 function Login({ handleLogin }) {
@@ -7,45 +7,54 @@ function Login({ handleLogin }) {
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const decryptPassword = async (encryptedPassword, key, iv) => {
-    const decoder = new TextDecoder();
-    const importedKey = await crypto.subtle.importKey(
-      "raw",
-      Uint8Array.from(atob(key), (c) => c.charCodeAt(0)),
-      { name: "AES-GCM", length: 256 },
-      false,
-      ["decrypt"]
-    );
-    const decryptedData = await crypto.subtle.decrypt(
-      {
-        name: "AES-GCM",
-        iv: Uint8Array.from(atob(iv), (c) => c.charCodeAt(0)),
-      },
-      importedKey,
-      Uint8Array.from(atob(encryptedPassword), (c) => c.charCodeAt(0))
-    );
-    return decoder.decode(decryptedData);
-  };
+  // const decryptPassword = async (encryptedPassword, key, iv) => {
+  //   const decoder = new TextDecoder();
+  //   const importedKey = await crypto.subtle.importKey(
+  //     "raw",
+  //     Uint8Array.from(atob(key), (c) => c.charCodeAt(0)),
+  //     { name: "AES-GCM", length: 256 },
+  //     false,
+  //     ["decrypt"]
+  //   );
+  //   const decryptedData = await crypto.subtle.decrypt(
+  //     {
+  //       name: "AES-GCM",
+  //       iv: Uint8Array.from(atob(iv), (c) => c.charCodeAt(0)),
+  //     },
+  //     importedKey,
+  //     Uint8Array.from(atob(encryptedPassword), (c) => c.charCodeAt(0))
+  //   );
+  //   return decoder.decode(decryptedData);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
     try {
       const storedUser = JSON.parse(localStorage.getItem("user"));
-
-      if (!storedUser) {
+           if (!storedUser) {
         setError("User not found");
         return;
       }
+      const response = await fetch ("http://localhost:8080/api/users/login", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email,password}),
+      })
+      const mydata = await response.json()
+      console.log(mydata)
+      localStorage.setItem("user",JSON.stringify(mydata))
 
-      const decryptedPassword = await decryptPassword(
-        storedUser.encryptedPassword,
-        storedUser.key,
-        storedUser.iv
-      );
+      // const decryptedPassword = await decryptPassword(
+      //   storedUser.encryptedPassword,
+      //   storedUser.key,
+      //   storedUser.iv
+      // );
+      console.log(storedUser, email, password)
+      if (storedUser.email === email) {
 
-      if (storedUser.email === email && decryptedPassword === password) {
         console.log("Login successful");
         handleLogin();
         setIsLoggedIn(true);

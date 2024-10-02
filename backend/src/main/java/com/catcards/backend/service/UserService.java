@@ -4,12 +4,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-import com.catcards.DTO.LoginRequest;
+import DTO.LoginRequest;
 import com.catcards.backend.common.MusicRepository;
 import com.catcards.backend.common.UserRepository;
 import com.catcards.backend.model.Music;
@@ -77,6 +78,20 @@ public class UserService {
 
             Music foundMusicEdited = musicRepository.save(foundMusic.get());
             return Optional.of(foundMusicEdited);
+        }
+        return Optional.empty();
+    }
+
+    public Optional<MyAppUser> findById(Integer id){
+        Optional <MyAppUser> foundUser = userRepository.findById(id);
+
+        if(foundUser.isPresent()){
+            foundUser.get().getUsername();
+            foundUser.get().getFirstName();
+            foundUser.get().getLastName();
+
+            MyAppUser foundUserInfo = userRepository.save(foundUser.get());
+            return Optional.of(foundUserInfo);
         }
         return Optional.empty();
     }

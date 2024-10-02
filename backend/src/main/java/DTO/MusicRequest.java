@@ -1,4 +1,4 @@
-package com.catcards.DTO;
+package DTO;
 
 import lombok.Getter;
 import lombok.Setter;

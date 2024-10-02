@@ -1,17 +1,18 @@
 import React from 'react';
 import { Cloudinary } from '@cloudinary/url-gen';
-import { extractPublicId } from "cloudinary-build-url";
+// import { extractPublicId } from "cloudinary-build-url";
 
 const Music = ({music_url}) => {
-  const publicId = extractPublicId(music_url) 
+  // const publicId = extractPublicId(music_url) 
   
+  // console.log(publicId)
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'dy6n13boh'
     }
   });
 
-  const audioUrl = cld.video(publicId).toURL();
+  const audioUrl = cld.video(music_url).toURL();
 
   return (
     <div>

@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<MyAppUser, Integer> {
 
+    Optional<MyAppUser> findById(Integer id);
     Optional<MyAppUser> findByUsername(String username);
     @Query("SELECT u FROM MyAppUser u WHERE u.email = :email")
     Optional<MyAppUser> findByEmail(String email);
@@ -22,4 +23,5 @@ public interface UserRepository extends JpaRepository<MyAppUser, Integer> {
     // List<MyAppUser> findByEnabled(Boolean enabled);
 
     List<MyAppUser> findByFirstNameAndLastName(String firstName, String lastName);
+
 }

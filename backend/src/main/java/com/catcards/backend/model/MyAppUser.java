@@ -1,12 +1,8 @@
 package com.catcards.backend.model;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
-
-import java.util.HashSet;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -33,5 +29,12 @@ public class MyAppUser {
     //         inverseJoinColumns = @JoinColumn(name = "role_id"))
     // private Set<Roles> roles;
 
-
+//i dont think this works???
+//    @OneToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "music",
+//            joinColumns = @JoinColumn(name = "myappuser_id"),
+//            inverseJoinColumns = @JoinColumn(name = "username")
+//    )
+//    private Set<Music> music;
 }

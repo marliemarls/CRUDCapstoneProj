@@ -15,7 +15,7 @@
     "genre": "Wino",
     "image_url": "small_TALK_",
     "music_url": "small_Talk",
-    "myAppUserId": 1
+    "myAppUserId": 5
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "genre": "Bedroom Pop",
     "image_url": "heLLo_img_",
     "music_url": "heLL_O",
-    "myAppUserId": 1
+    "myAppUserId": 6
   },
   {
     "id": 4,
@@ -33,6 +33,33 @@
     "genre": "Alternative",
     "image_url": "5_months",
     "music_url": "5_months",
-    "myAppUserId": 1
+    "myAppUserId": 7
+  },
+  {
+    "id": 5,
+    "title": "Grims Beat",
+    "artistName": "Grim Guapo",
+    "genre": "Alternative",
+    "image_url": "20140712_150045_wdtwug",
+    "music_url": "Gg_jsdyqa",
+    "myAppUserId": 2
+  },
+  {
+    "id": 6,
+    "title": "Kelz Beat",
+    "artistName": "zahkelz",
+    "genre": "Hip-Hop",
+    "image_url": "DSCN8847_i4ubrr",
+    "music_url": "Kelz_bksprz",
+    "myAppUserId": 4
+  },
+  {
+    "id": 7,
+    "title": "Sris Beat",
+    "artistName": "SriBeats",
+    "genre": "Hip-Hop",
+    "image_url": "20140711_203243_ggdakx",
+    "music_url": "Sri_ylexe3",
+    "myAppUserId": 3
   }
 ]

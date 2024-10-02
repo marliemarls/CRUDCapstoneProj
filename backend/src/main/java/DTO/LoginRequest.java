@@ -1,4 +1,4 @@
-package com.catcards.DTO;
+package DTO;
 
 public class LoginRequest {
     private String email;

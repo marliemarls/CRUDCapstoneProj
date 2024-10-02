@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.catcards.DTO.MusicRequest;
+import DTO.MusicRequest;
 import com.catcards.backend.common.MusicRepository;
 import com.catcards.backend.common.UserRepository;
 import com.catcards.backend.model.Music;

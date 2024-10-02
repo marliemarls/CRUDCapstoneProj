@@ -41,12 +41,13 @@ function Navbar({ isLoggedIn, handleLogout }) {
                 >
                   Upload
                 </Link>
-                <button
+                <Link
                   onClick={handleLogout}
                   className="bg-saffron text-onyx px-4 py-2 rounded hover:bg-keppel"
+                  to="/"
                 >
                   Logout
-                </button>
+                </Link>
               </>
             ) : (
               <>

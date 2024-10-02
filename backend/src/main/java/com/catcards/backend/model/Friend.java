@@ -1,4 +1,5 @@
 package com.catcards.backend.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,18 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "music")
-public class Music {
+@Table(name = "friend")
+public class Friend {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    private String title;
-    private String artistName;
-    private String genre;
-    private String image_url;
-    private String music_url;
-
-
-    @Column(name="myappuser_id", nullable = false)
-    private Integer myAppUserId;
+    private Integer userId;
+    private Integer friendId;
+    private String status; // e.g., "pending", "accepted", "rejected"
 }

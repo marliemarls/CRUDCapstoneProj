@@ -11,7 +11,6 @@ const TrackCard = () => {
         const response = await fetch("http://localhost:8080/test");
         const data = await response.json();
         setMyData(data);
-        console.log(data)
       } catch (error) {
         console.error("Error fetching data:", error);
       }

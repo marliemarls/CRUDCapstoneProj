@@ -5,13 +5,13 @@ import { byRadius } from "@cloudinary/url-gen/actions/roundCorners";
 import { extractPublicId } from "cloudinary-build-url";
 
 const PhotoCard = ({ image_url }) => {
-  const publicId = extractPublicId(image_url) 
+  // const publicId = extractPublicId(image_url) 
 
   
   const cld = new Cloudinary({ cloud: { cloudName: "dy6n13boh" } });
 
   // Use this sample image or upload your own via the Media Explorer
-  const img = cld.image(publicId).roundCorners(byRadius(35));
+  const img = cld.image(image_url).roundCorners(byRadius(35));
 
   return (
     <>
