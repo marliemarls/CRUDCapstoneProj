@@ -22,10 +22,10 @@ export default function LandingPage() {
         <div className="p-6">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Get Started</h2>
           <div className="space-y-4 content-between">
-            <Link to="/login" className="btn btn-primary w-full">
+            <Link to="/login" className="btn bg-indigo-500 w-full">
               Login
             </Link>
-            <Link to="/register" className="btn btn-secondary w-full">
+            <Link to="/register" className="btn bg-indigo-500 w-full">
               Register
             </Link>
           </div>

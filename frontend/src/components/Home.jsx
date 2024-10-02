@@ -11,7 +11,7 @@ function Home() {
           <p className="text-2xl text-white">Discover and Share Music on NextFM</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto px-4 py-8 text-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 container mx-auto px-4 py-8 text-center justify-center">
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body">
               <h2 className="card-title justify-center">Featured Artists</h2>

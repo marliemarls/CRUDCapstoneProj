@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <>
-      <div className="display-flex justify-center items-center align-center">
+      <div className="display-flex justify-center items-center align-center bg-gradient-to-b from-purple-400 to-indigo-600">
         {/* < LandingPage /> */}
         <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
         <Routes isLoggedIn={isLoggedIn} handleLogin={handleLogin} />

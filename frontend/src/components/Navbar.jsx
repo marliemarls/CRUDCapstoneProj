@@ -5,7 +5,7 @@ function Navbar({ isLoggedIn, handleLogout }) {
   return (
     <>
       {/* <AuthWrapper> */}
-      <nav className="bg-neutral-content text-platinum p-4">
+      <nav className="text-accent-content p-4 bg-indigo-700">
         <div className="container mx-auto flex justify-between items-center ">
           <div className="flex items-center">
             {isLoggedIn ? (
