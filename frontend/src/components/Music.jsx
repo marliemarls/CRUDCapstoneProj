@@ -1,7 +1,9 @@
 import React from 'react';
 import { Cloudinary } from '@cloudinary/url-gen';
+import { extractPublicId } from "cloudinary-build-url";
 
 const Music = ({music_url}) => {
+  const publicId = extractPublicId(music_url) 
   
   const cld = new Cloudinary({
     cloud: {
@@ -9,7 +11,7 @@ const Music = ({music_url}) => {
     }
   });
 
-  const audioUrl = cld.video(music_url).toURL();
+  const audioUrl = cld.video(publicId).toURL();
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from "./index.js";
+
 
 function Profile() {
   const [userData, setUserData] = useState(null);
@@ -13,8 +13,8 @@ function Profile() {
       setIsLoading(true);
       try {
         const [userResponse, musicResponse] = await Promise.all([
-          fetch("http://localhost:8080/api/users"),
-          fetch("http://localhost:8080/api/music")
+          fetch("http://localhost:8080/api/users/1/getMyMusic"),
+          fetch("http://localhost:8080/api/music/allMusic")
         ]);
 
         console.log(userResponse)
@@ -27,7 +27,7 @@ function Profile() {
 
 
         setUserData(userData);
-        setTracks(musicData);
+        setMusic(musicData);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError('Failed to load profile data. Please try again later.');
@@ -49,7 +49,7 @@ function Profile() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
-      <Navbar />
+
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2">

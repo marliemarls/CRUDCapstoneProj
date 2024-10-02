@@ -91,14 +91,14 @@ export default function TrackUpload() {
 
       const trackData = {
         title,
-        artist: artistName,
+        artistName: artistName,
         genre,
-        audioFile: audioUrl,
-        imageFile: imageUrl
+        image_url: imageUrl,
+        music_url: audioUrl
       };
 
       console.log(trackData)
-      const response = await fetch('http://localhost:8080/api/music/upload', {
+      const response = await fetch('http://localhost:8080/api/users/1/addMusic', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
