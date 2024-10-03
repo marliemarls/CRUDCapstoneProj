@@ -12,6 +12,7 @@ export default function App() {
   };
 
   const handleLogout = () => {
+    // localStorage.clear();
     setIsLoggedIn(false);
   };
 
