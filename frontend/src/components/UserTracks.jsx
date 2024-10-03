@@ -1,17 +1,25 @@
-import React from "react";
+// import React from "react";
 import { Music, PhotoCard } from ".";
 import { useState, useEffect } from "react";
 
-const TrackCard = () => {
+
+const SingleTrack = () => {
   const [myData, setMyData] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/test");
-        const data = await response.json();
-        setMyData(data);
-      } catch (error) {
+        const curUser = JSON.parse(localStorage.getItem('user'));
+        setCurrentUser(curUser);
+        const userId = curUser.id;
+        const musicResponse = await fetch(`http://localhost:8080/api/users/${userId}/getMyMusic`);
+        if (!musicResponse.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const musicData = await musicResponse.json();
+        setMyData(musicData);
+    }catch (error) {
         console.error("Error fetching data:", error);
       }
     };
@@ -40,7 +48,7 @@ const TrackCard = () => {
                   <h2 className="card-title text-center text-base-content justify-center mb-4">
                     {item.title}
                   </h2>
-                  <h2 className="text-center text-base-content justify-center mb-4">Artist Name: {item.artistName}</h2>
+                  <h2 className="text-center text-base-content justify-center mb-4">By: @{currentUser.username}</h2>
                   <div className="space-y-4">
                     <PhotoCard image_url={item.image_url} />
                     <Music music_url={item.music_url} />
@@ -55,4 +63,4 @@ const TrackCard = () => {
   );
 };
 
-export default TrackCard;
+export default SingleTrack;

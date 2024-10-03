@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { UserTracks } from '.';
 
 export default function Profile() {
   const [music, setMusic] = useState([]);
@@ -98,7 +99,7 @@ export default function Profile() {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-white rounded-lg shadow-md p-6 m-6">
               <h2 className="text-xl font-semibold mb-4">Music Feed</h2>
               <ul className="space-y-4">
                 {music.map((song) => (
@@ -147,6 +148,10 @@ export default function Profile() {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className=''>
+            <h2 className="text-xl font-semibold mb-4 text-center pt-5 ">Recent Tracks</h2>
+                <UserTracks />
             </div>
           </div>
         </div>

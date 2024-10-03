@@ -8,6 +8,8 @@ import {
   AuthWrapper,
   TrackUpload,
   LandingPage,
+  // EditProfile,
+  SingleTrack,
 } from ".";
 
 function Routes({ handleLogin }) {
@@ -15,6 +17,7 @@ function Routes({ handleLogin }) {
     <R>
       <Route path="/" element={<LandingPage />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/singleTrack" element={<SingleTrack />} />
       <Route path="/profile" element={<Profile />} />
       <Route
         path="/upload"

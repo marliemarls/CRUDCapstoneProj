@@ -61,5 +61,50 @@
     "image_url": "20140711_203243_ggdakx",
     "music_url": "Sri_ylexe3",
     "myAppUserId": 3
+  },
+  {
+    "id": 8,
+    "title": "GuitarTypeBeat",
+    "artistName": "Marlie Martinez",
+    "genre": "Alternative",
+    "image_url": "IMG_2116_zjj2ws",
+    "music_url": "Cambreleng_Ave_3_u9jche",
+    "myAppUserId": 1
+  },
+  {
+    "id": 9,
+    "title": "PianoTypeBeat",
+    "artistName": "Marlie Martinez",
+    "genre": "Alternative",
+    "image_url": "IMG_0049_nlfmbw",
+    "music_url": "Los_Angeles_Dr_8_p8qtpg",
+    "myAppUserId": 1
+  },
+  {
+    "id": 10,
+    "title": "EcuadorBeat",
+    "artistName": "Marlie Martinez",
+    "genre": "Alternative",
+    "image_url": "IMG_2088_s9jfpt",
+    "music_url": "Marlie_beat_1_vmuieg",
+    "myAppUserId": 1
+  },
+  {
+    "id": 11,
+    "title": "RandomBeat",
+    "artistName": "Marlie Martinez",
+    "genre": "Alternative",
+    "image_url": "IMG_2419_sk7uwf",
+    "music_url": "Marlie_beat_2_soglmz",
+    "myAppUserId": 1
+  },
+  {
+    "id": 12,
+    "title": "Pensamientos",
+    "artistName": "Marlie Martinez",
+    "genre": "Bedroom Pop",
+    "image_url": "IMG_1093_bdmg86",
+    "music_url": "Pensamientos_Por_Mi_Pacha_Mama_uzajsl",
+    "myAppUserId": 1
   }
 ]
