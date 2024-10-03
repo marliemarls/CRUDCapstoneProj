@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login({ handleLogin }) {
   const [email, setEmail] = useState("");
@@ -44,7 +44,7 @@ function Login({ handleLogin }) {
         body: JSON.stringify({email,password}),
       })
       const mydata = await response.json()
-      console.log(mydata)
+      // console.log(mydata)
       localStorage.setItem("user",JSON.stringify(mydata))
 
       // const decryptedPassword = await decryptPassword(
@@ -52,10 +52,10 @@ function Login({ handleLogin }) {
       //   storedUser.key,
       //   storedUser.iv
       // );
-      console.log(storedUser, email, password)
+      // console.log(storedUser, email, password)
       if (storedUser.email === email) {
 
-        console.log("Login successful");
+        // console.log("Login successful");
         handleLogin();
         setIsLoggedIn(true);
       } else {

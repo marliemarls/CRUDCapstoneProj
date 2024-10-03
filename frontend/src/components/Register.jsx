@@ -12,48 +12,57 @@ function Register() {
   const [error, setError] = useState("");
   const [isRegistered, setIsRegistered] = useState(false);
 
-  const encryptPassword = async (password) => {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const key = await crypto.subtle.generateKey(
-      { name: "AES-GCM", length: 256 },
-      true,
-      ["encrypt", "decrypt"]
-    );
-    const iv = crypto.getRandomValues(new Uint8Array(12));
-    const encryptedData = await crypto.subtle.encrypt(
-      { name: "AES-GCM", iv: iv },
-      key,
-      data
-    );
-    const exportedKey = await crypto.subtle.exportKey("raw", key);
-    return {
-      encryptedPassword: btoa(
-        String.fromCharCode.apply(null, new Uint8Array(encryptedData))
-      ),
-      key: btoa(String.fromCharCode.apply(null, new Uint8Array(exportedKey))),
-      iv: btoa(String.fromCharCode.apply(null, iv)),
-    };
-  };
+  // const encryptPassword = async (password) => {
+  //   const encoder = new TextEncoder();
+  //   const data = encoder.encode(password);
+  //   const key = await crypto.subtle.generateKey(
+  //     { name: "AES-GCM", length: 256 },
+  //     true,
+  //     ["encrypt", "decrypt"]
+  //   );
+  //   const iv = crypto.getRandomValues(new Uint8Array(12));
+  //   const encryptedData = await crypto.subtle.encrypt(
+  //     { name: "AES-GCM", iv: iv },
+  //     key,
+  //     data
+  //   );
+  //   const exportedKey = await crypto.subtle.exportKey("raw", key);
+  //   return {
+  //     encryptedPassword: btoa(
+  //       String.fromCharCode.apply(null, new Uint8Array(encryptedData))
+  //     ),
+  //     key: btoa(String.fromCharCode.apply(null, new Uint8Array(exportedKey))),
+  //     iv: btoa(String.fromCharCode.apply(null, iv)),
+  //   };
+  // };
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { encryptedPassword, key, iv } = await encryptPassword(password);
-      const response = await fetch ("http://localhost:8080/api/users/register");
-      const mydata = await response.json();
-      console.log(mydata);
-      
-      const user = { firstName, lastName, username, email, dob, gender, encryptedPassword, key, iv };
-      console.log(user)
-      localStorage.setItem("user", JSON.stringify(user));
-      console.log("User registered:", username, firstName, lastName, email);
-      setIsRegistered(true);
+        const user = { firstName, lastName, username, email, dob, gender, password };
+        const response = await fetch("http://localhost:8080/api/users/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const mydata = await response.json();
+        console.log(mydata);
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log("User registered:", username, firstName, lastName, email);
+        setIsRegistered(true);
     } catch (error) {
-      console.error("Registration error:", error);
-      setError("An error occurred during registration");
+        console.error("Registration error:", error);
+        setError("An error occurred during registration");
     }
-  };
+};
+
 
   if (isRegistered) {
     return (
@@ -132,8 +141,8 @@ function Register() {
               </label>
               <input
                 type="text"
-                id="lastName"
-                name="lastName"
+                id="dob"
+                name="dob"
                 required
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
@@ -146,8 +155,8 @@ function Register() {
               </label>
               <input
                 type="text"
-                id="lastName"
-                name="lastName"
+                id="gender"
+                name="gender"
                 required
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}

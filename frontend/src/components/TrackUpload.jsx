@@ -5,6 +5,7 @@ import { extractPublicId } from "cloudinary-build-url";
 
 
 export default function TrackUpload() {
+  const [currentUser, setCurrentUser] = useState(null);
   const [title, setTitle] = useState("");
   const [artistName, setArtistName] = useState("");
   const [genre, setGenre] = useState("");
@@ -98,11 +99,17 @@ export default function TrackUpload() {
     }
 
     try {
+      const currentUser = JSON.parse(localStorage.getItem('user'));
+      setCurrentUser(currentUser);
+      const userId = currentUser.id;
+      // console.log(userId);
+      
+      // const musicResponse = await fetch(`http://localhost:8080/api/users/${userId}/getMyMusic`);
       const audioUrl = await uploadAudioToCloudinary(audioFile);
       const imageUrl = await uploadImageToCloudinary(imageFile);
-      const publicMusicId = extractPublicId(audioUrl) 
-      const publicImageId = extractPublicId(imageUrl) 
-
+      const publicMusicId = extractPublicId(audioUrl);
+      const publicImageId = extractPublicId(imageUrl);
+      
       const trackData = {
         title,
         artistName: artistName,
@@ -110,10 +117,10 @@ export default function TrackUpload() {
         image_url: publicImageId,
         music_url: publicMusicId,
       };
-
+      
       console.log(trackData);
       const response = await fetch(
-        "http://localhost:8080/api/users/1/addMusic",
+        `http://localhost:8080/api/users/${userId}/addMusic`,
         {
           method: "POST",
           headers: {
