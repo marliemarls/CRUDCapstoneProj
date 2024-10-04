@@ -1,23 +1,22 @@
 # CRUDCapstoneProj
 
 ## About The Project
- `marliemarls`, `CRUDCapstoneProj`, `https://www.linkedin.com/in/marliemart/`, `https://github.com/marliemarls/CRUDCapstoneProj`, `Next_FM`, `Social media app`, `Tailwind CSS`, `Daisy UI`
+ `marliemarls`, `CRUDCapstoneProj`, `https://www.linkedin.com/in/marliemart/`, `https://github.com/marliemarls/CRUDCapstoneProj`, `Next_FM`, `Social media app`, `Tailwind CSS`, `Daisy UI`, `React`, `Vite`, `MySQL`
 
-NextFm is a vibrant social media platform that empowers music enthusiasts and audio creators to share their sonic creations with the world. Built with modern web technologies, including React, Vite, Tailwind CSS, and DaisyUI, NextFm offers a seamless and intuitive user experience. Users can easily upload their original audio files and music tracks, creating a diverse library of sounds for the community to explore. The platform also features customizable user profiles, allowing individuals to express their unique musical identity. With a sleek and responsive design, NextFm provides a space for artists to connect, share, and discover new audio content. Whether you're a professional musician, a podcast creator, or simply someone who loves to experiment with sound, NextFm is your go-to platform for audio-centric social networking.
+NextFm is a vibrant social media platform that empowers music enthusiasts and audio creators to share their sonic creations with the world. Built with modern web technologies, including React, Vite, Tailwind CSS, and DaisyUI, NextFm offers a seamless and intuitive user experience. Users can easily upload their original audio files and music tracks, creating a diverse library of sounds for the community to explore. The platform also features customizable user profiles, allowing individuals to express their unique musical identity. With a sleek and responsive design, NextFm aims to provide a space for artists to connect, share, and discover new audio content. Whether you're a professional musician, a podcast creator, or simply someone who loves to experiment with sound, NextFm is your go-to platform for audio-centric social networking.
 
 ## Technology Stack
 
-Created in [VSCode].
+Created in [VSCode], [IntelliJ] & [MySQL_WorkBench].
 
 | Technology | Description                               | Link ↘️ |
 |------------|-------------------------------------------|--------|
-| HTML       | Hyper Text Markup Language                | [HTML] |
-| CSS        | Cascading Style Sheets                    | [CSS]  |
-| JavaScript | High Level, Dynamic, Interpreted Language | [JS]   | 
+| MySQL      | Open-source relational database management system| [MySQL] |
 | React      | JavaScript library specialized in UX/UI   | [React]|
 | Tailwind   | Tailwind/CSS utility first framework      | [TailW]|
 | Vite       | Local dev server, used for React & Vue    | [Vite] |
 | Daisy UI   | Plugin component library for Tailwind     | [Daisy]|
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -56,9 +55,9 @@ This is how to initiate a Vite project via NPM.
 
 [React]: https://react.dev/
 [Vite]: https://vitejs.dev/guide/
-[HTML]: https://html.com/
-[JS]: https://www.javascript.com/
-[CSS]: https://www.w3.org/Style/CSS/Overview.en.html
 [VSCode]: https://code.visualstudio.com/
 [TailW]: https://tailwindcss.com/
 [Daisy]: https://daisyui.com/docs/install/
+[MySQL_Workbench]: https://mysql.com/
+[MySQL]: https://mysql.com/
+[IntelliJ]: https://www.jetbrains.com/idea/
